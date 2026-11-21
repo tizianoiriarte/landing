@@ -1,0 +1,210 @@
+/* ───────── Fuentes ───────── */
+@font-face{font-family:'Gloock';src:url(/assets/fonts/gloock-regular.woff) format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url(/assets/fonts/inter-300.woff) format('woff');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url(/assets/fonts/inter-400.woff) format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url(/assets/fonts/inter-500.woff) format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url(/assets/fonts/inter-600.woff) format('woff');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Space Mono';src:url(/assets/fonts/spacemono-400.woff) format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Space Mono';src:url(/assets/fonts/spacemono-700.woff) format('woff');font-weight:700;font-style:normal;font-display:swap}
+
+/* ───────── Base ───────── */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;background:#1E1E1E}
+a{color:#A2CAFD}
+a:hover{color:#E6E6E6}
+img{max-width:100%}
+p{margin:0}
+
+.page{background:#1E1E1E;color:#E6E6E6;font-family:'Inter',sans-serif;font-weight:400;min-width:0}
+
+/* Sistema tipográfico: Gloock títulos · Inter lectura · Space Mono etiquetas y números */
+h1,h2,h3,.logo{margin:0;font-family:'Gloock',Georgia,serif;font-weight:400;letter-spacing:-0.01em}
+.mono{font-family:'Space Mono',monospace}
+
+/* ───────── Utilidades de layout ───────── */
+.container{max-width:1240px;margin:0 auto}
+.col{display:flex;flex-direction:column;min-width:0}
+.row{display:flex;flex-wrap:wrap}
+
+/* ───────── Etiquetas (eyebrow) ───────── */
+.eyebrow{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#A2CAFD}
+.eyebrow--light{color:#E6E6E6}
+.eyebrow--green{color:#4C5D4D}
+
+/* Títulos de sección */
+.h2{font-size:clamp(32px,3.6vw,48px);line-height:1.12}
+.body-lg{font-size:17px;line-height:1.75;color:#C8C8C8}
+
+/* ───────── Header ───────── */
+.header{border-bottom:1px solid #333333}
+.nav{max-width:1240px;margin:0 auto;padding:22px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:24px;color:#E6E6E6;text-decoration:none}
+.logo:hover{color:#E6E6E6}
+.nav-links{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
+.nav-link{position:relative;color:#E6E6E6;text-decoration:none;padding:12px 0;transition:color .25s ease}
+.nav-link--accent{color:#A2CAFD}
+.nav-link:hover{color:#A2CAFD}
+
+/* ───────── Botones ───────── */
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;border-radius:999px;font-family:'Inter',sans-serif;font-size:15px;text-decoration:none;transition:transform .25s ease,background-color .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primario{background:#A2CAFD;color:#1E1E1E;font-weight:500}
+.btn-primario:hover{background-color:#C4DDFE;color:#1E1E1E;box-shadow:0 8px 24px rgba(162,202,253,.25)}
+.btn-secundario{border:1px solid #5A5A5A;color:#E6E6E6;font-weight:400}
+.btn-secundario:hover{border-color:#A2CAFD;color:#A2CAFD}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+
+/* ───────── Fondos que respiran ───────── */
+.bg-wrap{position:relative;overflow:hidden;isolation:isolate}
+.bg-layer{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;background-repeat:no-repeat;transform-origin:60% 60%;animation:respirar 22s ease-in-out infinite alternate;will-change:transform}
+.bg-celeste{background-image:url(/assets/fondo-celeste.jpg)}
+.bg-verde{background-image:url(/assets/fondo-verde.jpg)}
+@keyframes respirar{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.09) translate3d(-1.5%,-1%,0)}}
+
+/* ───────── Texturas: luz suave en el color de cada sección + grano ───────── */
+.tex{position:relative;isolation:isolate}
+.tex::before,.tex::after{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);pointer-events:none}
+.tex::before{z-index:-2;background:var(--tex)}
+.tex::after{z-index:-1;background-image:url(/assets/grano.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;opacity:calc(var(--grano,1) * .07)}
+.tex-oscuro-a{--tex:url(/assets/fondo-oscuro-a.jpg) center/100% 100% no-repeat}
+.tex-oscuro-b{--tex:url(/assets/fondo-oscuro-b.jpg) center/100% 100% no-repeat}
+.tex-oscuro-c{--tex:url(/assets/fondo-oscuro-c.jpg) center/100% 100% no-repeat}
+.tex-verde{--tex:url(/assets/fondo-seccion-verde.jpg) center/100% 100% no-repeat;--grano:1}
+.tex-oscuro-d{--tex:url(/assets/fondo-oscuro-d.jpg) center/100% 100% no-repeat}
+.tex-oscuro-e{--tex:url(/assets/fondo-oscuro-e.jpg) center/100% 100% no-repeat}
+.tex-claro{--tex:url(/assets/fondo-claro.jpg) center/100% 100% no-repeat;--grano:.55}
+
+/* ───────── Hero ───────── */
+#inicio{min-height:640px;padding:120px 32px;display:flex;align-items:center;justify-content:center}
+.hero-content{max-width:1200px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+.hero-kicker{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:#E6E6E6}
+#inicio h1{font-size:clamp(14px,5.4vw,80px);line-height:1.05;white-space:nowrap;color:#E6E6E6}
+.hero-text{max-width:900px;font-size:18px;line-height:1.6;color:#e6e6e6;text-align:center;text-wrap:balance}
+.hero-content .buttons{padding-top:8px}
+
+/* Entrada de la portada */
+.hero-in>*{opacity:0;animation:subir .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-in>*:nth-child(1){animation-delay:.15s}
+.hero-in>*:nth-child(2){animation-delay:.35s}
+.hero-in>*:nth-child(3){animation-delay:.6s}
+.hero-in>*:nth-child(4){animation-delay:.8s}
+@keyframes subir{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero-in h1,.hero-in p{text-shadow:0 2px 18px rgba(10,14,24,.55),0 1px 3px rgba(10,14,24,.35)}
+
+/* ───────── 01 Quién soy ───────── */
+#quien-soy{padding:120px 32px;display:flex;flex-wrap:wrap;gap:56px}
+.about-photo-col{flex:1 1 340px;gap:24px}
+.about-photo{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;border-radius:4px}
+.about-text-col{flex:2 1 560px;gap:22px;padding-top:44px}
+.about-text-col h2{margin:0 0 8px}
+
+/* ───────── 02 Con quién trabajo ───────── */
+.section-verde{background:#4C5D4D}
+.section-verde-inner{padding:96px 32px;display:flex;flex-direction:column;gap:48px}
+.section-intro{display:flex;flex-direction:column;gap:18px}
+.section-verde h2{color:#FFFFFF}
+.section-verde .lead{font-size:18px;line-height:1.65;color:#E6E6E6}
+.segments{display:flex;flex-wrap:wrap;gap:24px}
+.segment{flex:1 1 340px;min-width:0;border:1px solid #8A9A8B;border-radius:4px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.segment .tag{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#E6E6E6}
+.segment h3{font-size:26px;color:#FFFFFF}
+.segment p:last-child{font-size:16px;line-height:1.65;color:#E6E6E6}
+
+/* ───────── 03 Filosofía ───────── */
+#filosofia{padding:120px 32px;display:flex;flex-direction:column;gap:56px}
+.philo-top{display:flex;flex-wrap:wrap;gap:40px 64px;align-items:end}
+.philo-title-col{flex:1 1 480px;gap:18px}
+#filosofia h2{font-size:clamp(52px,8vw,116px);line-height:0.95;letter-spacing:-0.025em;color:#E6E6E6}
+.philo-text-col{flex:1 1 400px;gap:16px}
+.principles{display:flex;flex-wrap:wrap;border-top:1px solid #333333}
+.principle{flex:1 1 220px;min-width:0;padding:28px 24px 8px 0;display:flex;flex-direction:column;gap:12px}
+.principle:last-child{padding-right:0}
+.principle .num{font-family:'Space Mono',monospace;font-size:13px;color:#A2CAFD}
+.principle h3{font-size:20px}
+.principle p:last-child{font-size:15px;line-height:1.65;color:#A8A8A8}
+
+/* ───────── 04 Método ───────── */
+#metodo{background:#E6E6E6;color:#1E1E1E}
+.metodo-inner{padding:112px 32px;display:flex;flex-direction:column;gap:56px}
+#metodo .lead{font-size:18px;line-height:1.65;color:#3A3A3A}
+.phases{display:flex;flex-wrap:wrap;gap:20px}
+.phase{flex:1 1 250px;min-width:0;background:#FFFFFF;border-radius:4px;padding:30px;display:flex;flex-direction:column;gap:14px}
+.phase .tag{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.1em;color:#4C5D4D}
+.phase h3{font-size:24px}
+.phase .desc{font-size:15px;line-height:1.6;color:#3A3A3A}
+.phase ul{margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5;color:#3A3A3A}
+.phase .result{margin:auto 0 0;padding-top:14px;border-top:1px solid #D4D4D4;font-size:14px;line-height:1.6;color:#1E1E1E}
+.phase .result strong{font-weight:600}
+
+/* ───────── 05 Casos ───────── */
+#casos{padding:120px 32px 40px;display:flex;flex-direction:column;gap:18px}
+#casos h2{max-width:820px}
+.case{display:flex;flex-direction:column;gap:32px}
+.case--1{padding:48px 32px}
+.case--2{padding:72px 32px 120px}
+.case-row{display:flex;flex-wrap:wrap;gap:40px}
+.case-row--reverse{flex-wrap:wrap-reverse}
+.case-text{flex:1 1 380px;gap:20px}
+.case-meta{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#A8A8A8}
+.case-text h3{font-size:40px}
+.case-text p:not(.case-meta){font-size:16px;line-height:1.7;color:#C8C8C8}
+.visual-caso{flex:1 1 480px;min-width:0;align-self:start;background:#0D1014;border:1px solid #333333;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.visual-caso a{display:block;border-radius:4px}
+.visual-caso img{display:block;width:100%;height:auto;border-radius:4px;transition:transform .5s ease}
+.visual-caso:hover img{transform:scale(1.01)}
+.stats{display:flex;flex-wrap:wrap;gap:1px;background:#333333;border:1px solid #333333;border-radius:4px;overflow:hidden}
+.stat{flex:1 1 220px;background:#1E1E1E;padding:28px;display:flex;flex-direction:column;gap:6px}
+.count{font-family:'Space Mono',monospace;font-weight:400;font-size:32px;letter-spacing:-0.03em;color:#E6E6E6}
+.count--accent{color:#A2CAFD}
+.stat p:last-child{font-size:14px;line-height:1.5;color:#A8A8A8}
+
+/* ───────── 06 Capacidades ───────── */
+#capacidades{border-top:1px solid #333333}
+.cap-inner{padding:112px 32px;display:flex;flex-direction:column;gap:48px}
+.caps{display:flex;flex-wrap:wrap;gap:20px}
+.cap{flex:1 1 320px;min-width:0;background:#262626;border-radius:4px;padding:30px;display:flex;flex-direction:column;gap:12px}
+.cap .num{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#A2CAFD}
+.cap h3{font-size:21px}
+.cap p:last-child{font-size:15px;line-height:1.65;color:#A8A8A8}
+
+/* ───────── 07 Contacto ───────── */
+#contacto{min-height:640px;display:flex;align-items:center;justify-content:center;padding:96px 32px}
+.contact-card{max-width:760px;background:#1E1E1E;border-radius:4px;padding:56px 48px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.titulo-contacto{font-size:46px;line-height:1.1;color:#E6E6E6;white-space:nowrap}
+.contact-card .body{font-size:17px;line-height:1.65;color:#C8C8C8}
+.contact-card .buttons{padding-top:6px}
+.contact-card .btn{padding:0 26px}
+.btn-mail{border:1px solid #3a3a3a;color:#a2cafd;font-weight:500;background-color:#3a3a3a}
+.btn-ig{border:1px solid #5A5A5A;font-weight:400}
+
+/* ───────── Footer ───────── */
+.footer{max-width:1240px;margin:0 auto;padding:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#A8A8A8}
+
+/* ───────── Aparición al hacer scroll ───────── */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .reveal.is-visible{opacity:1;transform:none}
+
+/* ───────── Interacciones de tarjetas ───────── */
+.card{transition:transform .35s ease,box-shadow .35s ease,background-color .35s ease,border-color .35s ease}
+.card:hover{transform:translateY(-6px)}
+.card-claro:hover{box-shadow:0 18px 40px rgba(30,30,30,.12)}
+.card-oscuro:hover{background-color:#2C2C2C;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.card-borde:hover{border-color:#E6E6E6}
+
+/* ───────── Mobile ───────── */
+@media (max-width:640px){
+  #inicio{padding:72px 20px;min-height:560px}
+  #inicio h1{white-space:normal;font-size:40px;line-height:1.1}
+  .titulo-contacto{white-space:normal;font-size:32px}
+}
+
+/* ───────── Accesibilidad: respetar "reducir movimiento" ───────── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .bg-layer,.hero-in>*{animation:none !important;opacity:1 !important;transform:none !important}
+  .js .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+  .btn,.card,.visual-caso img{transition:none !important}
+  .btn:hover,.card:hover,.visual-caso:hover img{transform:none !important}
+}
