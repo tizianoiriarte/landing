@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: 'Tiziano Iriarte · Estratega y Creativo Digital',
@@ -28,7 +29,10 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="/assets/fonts/gloock-regular.woff" as="font" type="font/woff" crossOrigin="" />
         <link rel="preload" href="/assets/fonts/inter-400.woff" as="font" type="font/woff" crossOrigin="" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
